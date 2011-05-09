@@ -1,0 +1,21 @@
+.block
+  .content
+    %pre
+      = request.env['PATH_INFO']
+      = @connection.inspect
+      
+      %h2 #{@connection.hits.count} hits
+      - @connection.hits.asc(:step).each do |hit|
+        = hit.step
+        %pre=h hit.raw_data
+        %hr
+      
+      %h2 #{@connection.questions.count} questions
+      - @connection.questions.asc(:step).each do |question|
+        step: #{question.step}, choices:
+        - question.choice_objects.each_with_index do |event, i|
+          - if question.answer_id == i
+            %b= event.event_desc
+          - else
+            = event.event_desc
+        %hr

@@ -1,0 +1,27 @@
+--- !map:Hashie::Mash 
+result: !map:Hashie::Mash 
+  session_id: 797d841c5f283cd82c53fd0f96f51044
+  call_id: 5c6623a787a09e66d1c0f80a0fd49842
+  state: ANSWERED
+  session_duration: 12
+  sequence: 1
+  complete: true
+  error: 
+  actions: !map:Hashie::Mash 
+    event_category: !map:Hashie::Mash 
+      attempts: 1
+      disposition: SUCCESS
+      confidence: 38
+      interpretation: comedy
+      utterance: comedy
+      concept: comedy
+      value: comedy
+      xml: |
+        <?xml version="1.0"?>
+        <result grammar="0@a50dc0fc.vxmlgrammar">
+            <interpretation grammar="0@a50dc0fc.vxmlgrammar" confidence="38">
+                
+              <input mode="speech">comedy</input>
+            </interpretation>
+        </result>
+

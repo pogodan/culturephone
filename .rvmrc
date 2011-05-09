@@ -1,0 +1,6 @@
+if [[ -d "${rvm_path:-$HOME/.rvm}/environments" \
+  && -s "${rvm_path:-$HOME/.rvm}/environments/1.9.2@culturephone" ]] ; then
+  \. "${rvm_path:-$HOME/.rvm}/environments/1.9.2@culturephone"
+else
+  rvm --create use  "1.9.2@culturephone"
+fi

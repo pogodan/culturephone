@@ -1,0 +1,35 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:connections, :index)
+      %li=link_to pat(:new), url(:connections, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:connections)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:connection, :_type)
+          %th=mat(:connection, :_id)
+          %th=mat(:connection, :tropo_id)
+          %th=mat(:connection, :hits)
+          %th=mat(:connection, :from)
+          %th=mat(:connection, :network)
+          %th=mat(:connection, :updated_at)
+          %th.last="&nbsp;"
+        -@connections.each do |connection|
+          %tr
+            %td.first=connection._type
+            %td=connection._id
+            %td=link_to connection.tropo_id, url(:connections, :show, :id => connection.id)
+            %td=connection.hits.count
+            %td=connection.from
+            %td=connection.network
+            %td=connection.updated_at
+            %td.last
+              =button_to pat(:delete), url(:connections, :destroy, :id => connection.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
